@@ -17,10 +17,12 @@ public class Prodotto {
     private int code;
 
     Random randomizer = new Random();
+    DecimalFormat toDecimal = new DecimalFormat("#.##");
 
     //CONSTRUCTOR
     public Prodotto() {
-        code = randomizer.nextInt(10001);
+        code = randomizer.nextInt(1001);
+
     }
 
     public Prodotto(String name, String description, double price){
@@ -31,8 +33,8 @@ public class Prodotto {
     }
 
     //SETTER AND GETTER
-    public int getCode() {
-        return code;
+    public String getCode() {
+        return padLeft(code);
     }
 
     public String getName() {
@@ -43,8 +45,9 @@ public class Prodotto {
         return description;
     }
 
-    public double getPrice() {
-        return price;
+    public String getPrice() {
+
+        return  toDecimal.format(price);
     }
 
     public void setName(String name) {
@@ -61,25 +64,34 @@ public class Prodotto {
 
     @Override
     public String toString() {
-        return "Prodotto{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price + '\'' +
-                '}';
+        return "Prodotto " +
+                "name = " + name + '\'' +
+                ", descrizione =" + description + '\'' +
+                ", prezzo =" + toDecimal.format(price) + "$" + '\'';
     }
 
     //METHODS
 
     public String getNameAndCode (){
-        return name.toLowerCase() + code;
+        return name.toLowerCase() + padLeft(code);
     }
 
     public String GetPriceWithVAT(){
-        DecimalFormat toDecimal = new DecimalFormat("#.##");
         double vatPrice = price * 0.22;
         vatPrice += price;
-        String formattedPrice = toDecimal.format(vatPrice);
-        return  formattedPrice;
+        String formattedPriceVAT = toDecimal.format(vatPrice);
+        return  formattedPriceVAT;
+    }
+
+    private String padLeft(int code) {
+        String codeString = Integer.toString(code);
+        int numZeros = 8 - codeString.length();
+        if (numZeros > 0) {
+            String zeros = "0".repeat(numZeros);
+            return zeros + codeString;
+        } else {
+            return codeString;
+        }
     }
 
 }
