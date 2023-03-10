@@ -29,8 +29,12 @@ public class Conto {
     //GETTER AND SETTER
 
 
-    public String getBankBalance() {
+    public String getBalanceString () {
         return toDecimal.format(bankBalance);
+    }
+
+    public double getBalance(){
+        return bankBalance;
     }
 
     public int getBankAccount() {

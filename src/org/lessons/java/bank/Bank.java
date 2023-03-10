@@ -27,12 +27,16 @@ public class Bank {
                 System.out.println("How much money do you want to deposit?");
                 double moneyDeposited = input.nextDouble();
                 newBankAccount.storeMoney(moneyDeposited);
-                System.out.println("Now you have: " + newBankAccount.getBankBalance()+ "$");
+                System.out.println("Now you have: " + newBankAccount.getBalanceString()+ "$");
             } else if (choice == 2) {
                 System.out.println("How much money do you want to take?");
                 double moneyTook = input.nextDouble();
+                if ( newBankAccount.getBalance() < moneyTook){
+                    System.out.println("You don't have enough money");
+                }else {
                 newBankAccount.getMoney(moneyTook);
-                System.out.println("Now you have: " + newBankAccount.getBankBalance()+ "$");
+                System.out.println("Now you have: " + newBankAccount.getBalanceString()+ "$");
+                }
             }else if(choice == 3){
                 flag = true;
                 System.out.println("Bye bye!");
