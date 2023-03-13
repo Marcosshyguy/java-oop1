@@ -19,7 +19,7 @@ public class Bank {
 
             System.out.println("Make a choice");
             System.out.println("Select 1 if you want to deposit money");
-            System.out.println("Select 2 if you want to take money");
+            System.out.println("Select 2 if you want to withdraw money");
             System.out.println("Select 3 to exit");
             int choice = input.nextInt();
 
@@ -32,7 +32,7 @@ public class Bank {
                 System.out.println("How much money do you want to take?");
                 double moneyTook = input.nextDouble();
                 if ( newBankAccount.getBalance() < moneyTook){
-                    System.out.println("You don't have enough money");
+                    System.out.println("You don't have enough money. You have: " + newBankAccount.getBalanceString());
                 }else {
                 newBankAccount.getMoney(moneyTook);
                 System.out.println("Now you have: " + newBankAccount.getBalanceString()+ "$");

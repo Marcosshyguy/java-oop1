@@ -60,13 +60,13 @@ public class Conto {
                 ", bankAccount =" + bankAccount;
     }
 
-    public double getMoney(double moneyTook){
+    public void getMoney(double moneyTook){
 
-            return bankBalance -= moneyTook;
+             bankBalance -= moneyTook;
 
     }
 
-    public double storeMoney(double moneyAdded){
-        return bankBalance += moneyAdded;
+    public void storeMoney(double moneyAdded){
+         bankBalance += moneyAdded;
     }
 }

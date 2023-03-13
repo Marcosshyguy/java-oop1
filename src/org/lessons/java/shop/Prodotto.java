@@ -66,8 +66,8 @@ public class Prodotto {
     public String toString() {
         return "Prodotto " +
                 "name = " + name + '\'' +
-                ", descrizione =" + description + '\'' +
-                ", prezzo =" + toDecimal.format(price) + "$" + '\'';
+                ", descrizione = " + description + '\'' +
+                ", prezzo = " + toDecimal.format(price) + "$" + '\'';
     }
 
     //METHODS
